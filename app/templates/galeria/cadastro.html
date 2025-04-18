@@ -7,5 +7,17 @@
 </head>
 <body>
     <h3>Cadastro</h3>
+    <form action="{% url 'listagem_usuarios' %}" method="post">
+        {% csrf_token %}
+          <div  style="text-align: center;" class="container">
+              <h1>Cadastro de Usuarios</h1>
+              Usuario <input name="usuario" class="form-control-sm" type="text">
+              Senha <input name="senha" class="form-control-sm" type="password">
+              Casal <input name="casal" class="form-control-sm" type="text">
+              <button class="form-control-sm">Enviar</button>
+          </div>
+      </form>
+
+      <a href="{% url 'home' %}">Inicio</a>
 </body>
 </html>

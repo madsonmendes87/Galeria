@@ -5,4 +5,4 @@ class Usuario(models.Model):
     id_usuario = models.AutoField(primary_key=True)
     usuario = models.TextField(max_length=255)
     senha = models.TextField(max_length=255)
-    casal = models.BooleanField(blank=False, null=False, default=False)
+    casal = models.CharField(max_length=1)

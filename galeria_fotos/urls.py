@@ -1,7 +1,11 @@
-from django.urls import path
-from app import views
+from django.contrib import admin 
+from django.urls import path, include
+#from app import views
 
 urlpatterns = [
-    path('', views.home, name='home'),
-    path('cadastro/', views.cadastro, name='cadastro'),
+    path('admin/', admin.site.urls),
+    path('app/', include('app.urls')),
+    #path('', views.home, name='home'),
+    #path('cadastro/', views.cadastro, name='cadastro'),
+    #path('usuarios/', views.home, name='listagem_usuarios'),
 ]
