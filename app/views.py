@@ -1,4 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib.auth.models import User, auth
+from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
 from .models import Usuario
 # Create your views here.
 def home(request):
@@ -18,3 +21,16 @@ def usuarios(request):
     'usuarios': Usuario.objects.all()
     }
     return render(request, 'galeria/usuarios.html', usuarios)
+
+def login(request):
+    if request.method == 'POST':
+        usuario = request.POST['usuario']
+        senha = request.POST['senha']
+        user = authenticate(request, username=usuario, password=senha)
+        if user is not None:
+            return render(request,'galeria/login.html')
+        else:
+            messages.info(request,'invalido credenciais')
+            return redirect('/app')
+    else:
+        return render(request, 'galeria/home.html')

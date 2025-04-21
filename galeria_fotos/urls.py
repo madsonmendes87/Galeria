@@ -5,7 +5,4 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('app/', include('app.urls')),
-    #path('', views.home, name='home'),
-    #path('cadastro/', views.cadastro, name='cadastro'),
-    #path('usuarios/', views.home, name='listagem_usuarios'),
 ]
